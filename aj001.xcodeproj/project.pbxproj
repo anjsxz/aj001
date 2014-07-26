@@ -21,6 +21,12 @@
 		5F0DFDB019834FC4003133FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0DFD9219834FC3003133FE /* UIKit.framework */; };
 		5F0DFDB819834FC4003133FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F0DFDB619834FC4003133FE /* InfoPlist.strings */; };
 		5F0DFDBA19834FC4003133FE /* aj001Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DFDB919834FC4003133FE /* aj001Tests.m */; };
+		5F0DFDCA1983501D003133FE /* CameraEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DFDC51983501D003133FE /* CameraEngine.m */; };
+		5F0DFDCC1983501D003133FE /* VideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DFDC91983501D003133FE /* VideoEncoder.m */; };
+		5F0DFDCE19835050003133FE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0DFDCD19835050003133FE /* AVFoundation.framework */; };
+		5F0DFDD019835057003133FE /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0DFDCF19835057003133FE /* CoreMedia.framework */; };
+		5F0DFDD219835060003133FE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0DFDD119835060003133FE /* CoreVideo.framework */; };
+		5F0DFDD419835064003133FE /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0DFDD319835064003133FE /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,14 @@
 		5F0DFDB519834FC4003133FE /* aj001Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "aj001Tests-Info.plist"; sourceTree = "<group>"; };
 		5F0DFDB719834FC4003133FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5F0DFDB919834FC4003133FE /* aj001Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = aj001Tests.m; sourceTree = "<group>"; };
+		5F0DFDC41983501D003133FE /* CameraEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraEngine.h; sourceTree = "<group>"; };
+		5F0DFDC51983501D003133FE /* CameraEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraEngine.m; sourceTree = "<group>"; };
+		5F0DFDC81983501D003133FE /* VideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoEncoder.h; sourceTree = "<group>"; };
+		5F0DFDC91983501D003133FE /* VideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEncoder.m; sourceTree = "<group>"; };
+		5F0DFDCD19835050003133FE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5F0DFDCF19835057003133FE /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		5F0DFDD119835060003133FE /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		5F0DFDD319835064003133FE /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0DFDD419835064003133FE /* AssetsLibrary.framework in Frameworks */,
+				5F0DFDD219835060003133FE /* CoreVideo.framework in Frameworks */,
+				5F0DFDD019835057003133FE /* CoreMedia.framework in Frameworks */,
+				5F0DFDCE19835050003133FE /* AVFoundation.framework in Frameworks */,
 				5F0DFD9119834FC3003133FE /* CoreGraphics.framework in Frameworks */,
 				5F0DFD9319834FC3003133FE /* UIKit.framework in Frameworks */,
 				5F0DFD8F19834FC3003133FE /* Foundation.framework in Frameworks */,
@@ -101,6 +119,10 @@
 		5F0DFD8D19834FC3003133FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F0DFDD319835064003133FE /* AssetsLibrary.framework */,
+				5F0DFDD119835060003133FE /* CoreVideo.framework */,
+				5F0DFDCF19835057003133FE /* CoreMedia.framework */,
+				5F0DFDCD19835050003133FE /* AVFoundation.framework */,
 				5F0DFD8E19834FC3003133FE /* Foundation.framework */,
 				5F0DFD9019834FC3003133FE /* CoreGraphics.framework */,
 				5F0DFD9219834FC3003133FE /* UIKit.framework */,
@@ -112,6 +134,7 @@
 		5F0DFD9419834FC3003133FE /* aj001 */ = {
 			isa = PBXGroup;
 			children = (
+				5F0DFDC31983501D003133FE /* model */,
 				5F0DFD9D19834FC3003133FE /* AppDelegate.h */,
 				5F0DFD9E19834FC3003133FE /* AppDelegate.m */,
 				5F0DFDA019834FC3003133FE /* Main.storyboard */,
@@ -150,6 +173,17 @@
 				5F0DFDB619834FC4003133FE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F0DFDC31983501D003133FE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5F0DFDC41983501D003133FE /* CameraEngine.h */,
+				5F0DFDC51983501D003133FE /* CameraEngine.m */,
+				5F0DFDC81983501D003133FE /* VideoEncoder.h */,
+				5F0DFDC91983501D003133FE /* VideoEncoder.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,8 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0DFDCA1983501D003133FE /* CameraEngine.m in Sources */,
 				5F0DFDA519834FC3003133FE /* ViewController.m in Sources */,
 				5F0DFD9F19834FC3003133FE /* AppDelegate.m in Sources */,
+				5F0DFDCC1983501D003133FE /* VideoEncoder.m in Sources */,
 				5F0DFD9B19834FC3003133FE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +415,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "aj001/aj001-Prefix.pch";
 				INFOPLIST_FILE = "aj001/aj001-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -392,6 +429,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "aj001/aj001-Prefix.pch";
 				INFOPLIST_FILE = "aj001/aj001-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

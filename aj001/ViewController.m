@@ -17,13 +17,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+     [self startPreview];
+    [[CameraEngine engine]startCapture];
+
 }
 
+- (void) startPreview
+{
+    AVCaptureVideoPreviewLayer* preview = [[CameraEngine engine] getPreviewLayer];
+    [preview removeFromSuperlayer];
+    preview.frame = self.cameraView.bounds;
+    [[preview connection] setVideoOrientation:UIInterfaceOrientationLandscapeRight];
+    
+    [self.cameraView.layer addSublayer:preview];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    // this is not the most beautiful animation...
+    AVCaptureVideoPreviewLayer* preview = [[CameraEngine engine] getPreviewLayer];
+    preview.frame = self.cameraView.bounds;
+    [[preview connection] setVideoOrientation:toInterfaceOrientation];
+}
 @end
