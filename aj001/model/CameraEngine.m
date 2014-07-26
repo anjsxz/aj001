@@ -122,25 +122,7 @@ static CameraEngine* theEngine;
         _audioConnection = [audioout connectionWithMediaType:AVMediaTypeAudio];
         // for audio, we want the channels and sample rate, but we can't get those from audioout.audiosettings on ios, so
         // we need to wait for the first sample
-        
-		
-//        [_session beginConfiguration];
-        //        [_session removeInput:VideoInputDevice];
-//        NSError*error;
-//        AVCaptureDeviceInput*   NewVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self CameraWithPosition:AVCaptureDevicePositionFront] error:&error];
-//        if ([_session canAddInput:NewVideoInput])
-//        {
-//            [_session addInput:NewVideoInput];
-//            input = NewVideoInput;
-//        }
-//        else
-//        {
-//            [_session addInput:input];
-//        }
-// 
-//        [_session commitConfiguration];
-        
-        
+
         
         // start capture and a preview layer
         
@@ -148,19 +130,19 @@ static CameraEngine* theEngine;
         _preview = [AVCaptureVideoPreviewLayer layerWithSession:_session];
         _preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
         
-
+        [_session startRunning];
         
     }
-    [_session startRunning];
+    
 }
 
 - (void) startCapture
 {
-    
+  
     @synchronized(self)
     {
-//        if (!self.isCapturing)
-//        {
+        if (!self.isCapturing)
+        {
             NSLog(@"starting capture");
              _file = [self genFile];
             // create the encoder once we have the audio params
@@ -170,39 +152,32 @@ static CameraEngine* theEngine;
             _timeOffset = CMTimeMake(0, 0);
             self.isCapturing = YES;
         }
-//    }
+    }
 }
-
+-(void)stop{
+    [_encoder finishWithCompletionHandler:^{
+        NSLog(@"save completed ,to background");
+    }];
+}
 - (void) stopCapture
 {
     @synchronized(self)
     {
-//        if (self.isCapturing)
-//        {
-//            NSString* path = _file;//[NSTemporaryDirectory() stringByAppendingPathComponent:filename];
-//            NSURL* url = [NSURL fileURLWithPath:path];
-            _currentFile++;
-            
-            // serialize with audio and video capture
-            
+        if (self.isCapturing)
+        {
             self.isCapturing = NO;
             dispatch_async(_captureQueue, ^{
                 [_encoder finishWithCompletionHandler:^{
                     self.isCapturing = NO;
                     _encoder = nil;
                     NSLog(@"save completed");
-                  
-//                    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-//                    [library writeVideoAtPathToSavedPhotosAlbum:url completionBlock:^(NSURL *assetURL, NSError *error){
-//                        NSLog(@"save completed");
-//                        [[CameraEngine engine] startCapture];
-////                        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
-//                    }];
+                   [[CameraEngine engine] startCapture];
                 }];
             });
+       
         }
-//    }
-      [[CameraEngine engine] startCapture];
+    }
+    
 }
 
 - (void) pauseCapture

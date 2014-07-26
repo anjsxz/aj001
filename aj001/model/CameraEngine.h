@@ -24,6 +24,7 @@
 - (void) startCapture;
 - (void) pauseCapture;
 - (void) stopCapture;
+- (void) stop;
 - (void) resumeCapture;
 
 @property (atomic, readwrite) BOOL isCapturing;

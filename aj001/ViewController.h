@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "CameraEngine.h"
 @interface ViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIView *cameraView;
-- (void) startPreview;
+
 @end

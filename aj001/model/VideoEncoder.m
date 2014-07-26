@@ -41,7 +41,7 @@
                                           [ NSNumber numberWithInt: kAudioFormatMPEG4AAC], AVFormatIDKey,
                                           [ NSNumber numberWithInt: ch], AVNumberOfChannelsKey,
                                           [ NSNumber numberWithFloat: rate], AVSampleRateKey,
-                                          [ NSNumber numberWithInt: 64000 ], AVEncoderBitRateKey,
+                                          [ NSNumber numberWithInt: 32000 ], AVEncoderBitRateKey,
                 nil];
     _audioInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeAudio outputSettings:settings];
     _audioInput.expectsMediaDataInRealTime = YES;

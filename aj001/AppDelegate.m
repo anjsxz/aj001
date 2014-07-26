@@ -14,6 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[CameraEngine engine] startup];
+    [[CameraEngine engine] startCapture];
     [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(stop:) userInfo:nil repeats:YES];
     return YES;
 }
@@ -30,7 +31,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    [[CameraEngine engine] stopCapture];
+    [[CameraEngine engine]pauseCapture];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -40,9 +41,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    [[CameraEngine engine] startup];
-    ViewController* view = (ViewController*) self.window.rootViewController;
-    [view startPreview];
+    [[CameraEngine engine]resumeCapture];
+   
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
